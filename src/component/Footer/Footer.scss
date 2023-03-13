@@ -1,0 +1,85 @@
+@use "../../scss/" as *;
+
+.footer {
+  width: 100%;
+  padding: 24px 36px 0 36px;
+  border-top: 1px solid $border-color;
+  @include mobile {
+    padding: 4px;
+    padding-top: 12px;
+  }
+  @include minipc {
+    margin-bottom: $music-player-mobile-height;
+  }
+  &-contact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 24px;
+    @include mobile {
+      flex-direction: column;
+      padding-bottom: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $border-color;
+      top: 100%;
+    }
+    &__support {
+      display: flex;
+      align-items: center;
+      @include mobile {
+        flex: 1;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+      &__item {
+        font-size: 1rem;
+        padding: 0 12px;
+        @include minipc {
+          font-size: 0.9rem;
+        }
+        @include mobile {
+          font-size: 1.2rem;
+          text-decoration: underline;
+        }
+        &:nth-child(n + 1) {
+          border-right: 1px solid $border-color;
+          @include mobile {
+            border: none;
+          }
+        }
+      }
+    }
+    &__social {
+      display: flex;
+      align-items: center;
+      @include mobile {
+        flex: 1;
+      }
+      @include mobile {
+        flex: 1;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+      &__item {
+        font-size: 1.5rem;
+        padding: 0 12px;
+        @include mobile {
+          font-size: 2rem;
+        }
+        &:nth-child(1),
+        &:nth-child(2) {
+          border-right: 1px solid $border-color;
+          @include mobile {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

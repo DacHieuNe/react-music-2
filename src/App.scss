@@ -1,0 +1,121 @@
+@use "./scss" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.playlist-detail-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 36px;
+}
+html {
+  font-size: 100%;
+  @include tablet {
+    font-size: 80%;
+  }
+  @include mobile {
+    font-size: 60%;
+  }
+}
+
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  line-height: 1.5;
+
+  background-color: $body-bg;
+  color: $txt-color;
+  @include mobile {
+    margin-bottom: 3rem;
+  }
+}
+
+.App {
+  display: flex;
+}
+.content {
+  width: 100%;
+  // margin-left: $navbar-width ;
+  // margin-right: $music-player-width;
+  padding-left: $navbar-width;
+  padding-right: $music-player-width;
+  @include mobile {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: $navbar-mobile-height;
+  }
+}
+
+@include minipc {
+  .content {
+    padding-right: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: $main-color;
+  }
+}
+
+button,
+input {
+  outline: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+img {
+  max-width: 100%;
+}
+
+.grid {
+  width: 100%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  .column-4 {
+    width: 33.3%;
+  }
+  .column-3 {
+    width: 25%;
+  }
+}
+.row.distance-4 {
+  margin: 0 -4px;
+  .column-4,
+  .column-3 {
+    padding: 4px;
+  }
+}
+.row.distance-8 {
+  margin: 0 -8px;
+  .column-4,
+  .column-3 {
+    padding: 8px;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 24px 36px;
+  @include mobile {
+    min-height: 100vh;
+  }
+}
+
+.container--fix {
+  min-height: 100vh;
+}

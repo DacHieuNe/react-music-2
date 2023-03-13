@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+
+import "./App.scss";
+
+// import HeroSection from './component/HeroSection/HeroSection';
+import "swiper/swiper.min.css";
+
+import Navbar from "./component/Navbar/Navbar";
+import NavbarMobile from "./component/NavbarMobile/NavbarMobile";
+
+import MusicPlayer from "./component/MusicPlayer/MusicPlayer";
+import MusicPlayerMobile from "./component/MusicPlayerMobile/MusicPlayerMobile";
+
+import Router from "./Router/Router";
+
+import Footer from "./component/Footer/Footer";
 
 function App() {
+  const [show, setShow] = useState(false);
+  let screenWidth = window.innerWidth;
+
+  useEffect(() => {
+    if (screenWidth < 1280) {
+      setShow(true);
+    }
+  }, [screenWidth]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <NavbarMobile />
+      <div className="content">
+        <Router />
+        <Footer />
+      </div>
+      {show ? <MusicPlayerMobile /> : <MusicPlayer />}
     </div>
   );
 }
